@@ -1,3 +1,7 @@
 .idea
 /node_modules
 /build
+.env
+
+src/commands/*
+!/src/commands/ping.ts

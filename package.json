@@ -6,14 +6,16 @@
   "scripts": {
     "start": "node build/app.js",
     "build": "tsc",
-    "server": "tsc && cd build && node app.js"
+    "server": "tsc && npm run start"
   },
   "keywords": [],
   "author": "Sebastian Starck",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.5.1",
+    "@types/lodash": "^4.14.191",
+    "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
+    "lodash": "^4.17.21",
     "node-tmux": "^1.0.2"
   },
   "devDependencies": {

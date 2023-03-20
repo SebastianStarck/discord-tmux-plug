@@ -53,11 +53,6 @@ export class DiscordClient {
       await interaction.reply("Command not found");
     }
 
-    try {
-      await command.action(interaction);
-    } catch (err) {
-      console.log(err);
-      await interaction.reply("Something went wrong!");
-    }
+    await command.execute(interaction);
   }
 }

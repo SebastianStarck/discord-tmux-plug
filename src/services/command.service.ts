@@ -10,9 +10,9 @@ export let commands: any = [];
 
 export const scoutCommands = () => {
   const commandsPath = path.resolve(__dirname + "/../commands");
-  const commands = getDefaultExportsFromFolder(commandsPath);
+  commands = getDefaultExportsFromFolder(commandsPath);
 
-  Object.entries(commands).forEach(([_, command]) =>
+  commands.forEach((command) =>
     console.log(`Found command: ${command.name}`)
   );
 };
@@ -27,7 +27,7 @@ export const getCommand = (commandName: string): Command => {
 };
 
 function getDefaultExportsFromFolder(folderPath: string): DefaultExports {
-  const defaultExports: DefaultExports = {};
+  const cmds = [];
 
   const files = fs.readdirSync(folderPath);
 
@@ -38,10 +38,10 @@ function getDefaultExportsFromFolder(folderPath: string): DefaultExports {
       const fileExports = require(filePath).default;
 
       if (fileExports !== undefined) {
-        defaultExports[fileName] = fileExports;
+        cmds.push(fileExports);
       }
     }
   });
 
-  return defaultExports;
+  return cmds;
 }

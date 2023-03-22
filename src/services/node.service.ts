@@ -17,7 +17,7 @@ export async function getRunningJobs(
 ): Promise<Job[]> {
   let command = `ps -ef | grep ${jobName}`;
   if (commandPrefix) {
-    command = `${commandPrefix} ${command}`;
+    command = `${commandPrefix} "${command}"`;
   }
 
   const output: string = await runShellCommand(command);

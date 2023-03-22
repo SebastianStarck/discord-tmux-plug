@@ -37,7 +37,9 @@ export class DiscordClient {
       body: commandsNameAndDescription,
     });
 
-    console.log("Registered commands successfully");
+    console.log(`Registered commands successfully: \n
+      ${commands.map(command => command.name).join('\n')}
+    `);
   }
 
   private registerSlashCommandInteraction() {

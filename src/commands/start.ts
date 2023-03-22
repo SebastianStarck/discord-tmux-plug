@@ -33,7 +33,7 @@ const start: CommandDefinition = {
   action: async (interaction) => {
     try {
       const jobs = await getRunningJobs(
-        "ps -ef | grep start-server.sh",
+        "start-server.sh",
         "su - pzuser"
       );
 

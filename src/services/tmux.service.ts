@@ -1,4 +1,5 @@
 import { Tmux, tmux } from "node-tmux";
+import { runShellCommand } from "../util";
 
 export class TmuxService {
   private instance: Tmux;
@@ -24,6 +25,7 @@ export class TmuxService {
       return this.instance;
     }
 
+    await runShellCommand("su - pzuser");
     return tmux()
       .then((tm) => {
         this.instance = tm;
